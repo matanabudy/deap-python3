@@ -87,24 +87,23 @@ def run_setup(build_ext):
          ext_modules=extra_modules,
          cmdclass={"build_ext": ve_build_ext},
          install_requires=['numpy'],
-         use_2to3=True
     )
 
 try:
     run_setup(True)
 except BuildFailed:
-    print("*" * 75)
+    print(("*" * 75))
     print("WARNING: The C extensions could not be compiled, "
           "speedups won't be available.")
     print("Now building without C extensions.")
-    print("*" * 75)
+    print(("*" * 75))
 
     run_setup(False)
 
-    print("*" * 75)
+    print(("*" * 75))
     print("WARNING: The C extensions could not be compiled, "
           "speedups won't be available.")
     print("Plain-Python installation succeeded.")
-    print("*" * 75)
+    print(("*" * 75))
 
-print("\n".join(warnings))
+print(("\n".join(warnings)))
